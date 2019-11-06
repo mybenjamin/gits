@@ -5,9 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
-const routes: Routes = [{
-  path: '', component: DashboardComponent
-}];
+const routes: Routes = [
+  { path: '', component: DashboardComponent },
+  { path: '**', component: DashboardComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
