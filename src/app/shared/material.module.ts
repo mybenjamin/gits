@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { A11yModule } from '@angular/cdk/a11y';
+import { LayoutModule } from '@angular/cdk/layout';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { PortalModule } from '@angular/cdk/portal';
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -44,6 +45,7 @@ import { MatTreeModule } from '@angular/material/tree';
 @NgModule({
   exports: [
     A11yModule,
+    LayoutModule,
     CdkStepperModule,
     CdkTableModule,
     CdkTreeModule,
