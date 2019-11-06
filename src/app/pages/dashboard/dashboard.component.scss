@@ -1,17 +1,22 @@
-div {
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.player-card {
+  max-width: 250px;
+  min-width: 200px;
+  margin: 2em;
   display: inline-block;
 }
 
-.container {
-  padding: 5em;
-}
+.player-name {}
 
-.card {
-  max-width: 200px;
-  min-width: 200px;
-  margin: 2em;
-}
+.player-mmr {}
 
-.image {
-  border-radius: 1em;
+.player-avatar {
+  padding: 1em;
 }
