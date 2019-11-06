@@ -1,0 +1,17 @@
+<app-loading *ngIf="!playerList.length"></app-loading>
+<div *ngIf="playerList.length" class="container">
+  <div *ngFor="let player of playerList">
+    <mat-card class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{player.profile.personaname}}</mat-card-title>
+        <mat-card-subtitle>MMR {{player.mmr_estimate.estimate}}</mat-card-subtitle>
+      </mat-card-header>
+      <img class="image" mat-card-image [src]="player.profile.avatarfull">
+      <mat-card-content>
+        <p>
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
