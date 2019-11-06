@@ -1,21 +1,17 @@
-.grid-container {
-  margin: 20px;
+div {
+  display: inline-block;
 }
 
-.dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+.container {
+  padding: 5em;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.card {
+  max-width: 200px;
+  min-width: 200px;
+  margin: 2em;
 }
 
-.dashboard-card-content {
-  text-align: center;
+.image {
+  border-radius: 1em;
 }
