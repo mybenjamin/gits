@@ -9,12 +9,15 @@ import { MaterialModule } from './shared/material.module';
 
 // App Components
 import { AppComponent } from './app.component';
+import { LoadingComponent } from './shared/components/loading/loading.component';
 
 // Pages
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
+// Services
 import { OpendotaApiService } from './core/opendota-api.service';
-import { LoadingComponent } from './shared/components/loading/loading.component';
+import { ThrowShadeService } from './core/throw-shade.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,10 @@ import { LoadingComponent } from './shared/components/loading/loading.component'
     HttpClientModule
 
   ],
-  providers: [OpendotaApiService],
+  providers: [
+    OpendotaApiService,
+    ThrowShadeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OpendotaApiService } from '../../core/opendota-api.service';
 import { Player } from '../../core/models/player';
+import { ThrowShadeService } from 'src/app/core/throw-shade.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +12,8 @@ export class DashboardComponent implements OnInit {
 
   players: any;
   playerList: Array<Player> = [];
-
-  constructor(private opendota: OpendotaApiService) { }
+  insult: string;
+  constructor(private opendota: OpendotaApiService, private shade: ThrowShadeService) { }
 
   ngOnInit() {
     this.players = this.opendota.getPlayers();
@@ -24,4 +25,11 @@ export class DashboardComponent implements OnInit {
       console.log(this.playerList);
     }, 1000);
   }
+
+  throwShade = () => this.shade.throwShade().subscribe(x => {
+    this.insult = x.insult;
+    setTimeout(() => {
+      console.log(this.insult);
+    }, 1000);
+  })
 }
