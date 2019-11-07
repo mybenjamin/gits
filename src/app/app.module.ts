@@ -10,6 +10,7 @@ import { MaterialModule } from './shared/material.module';
 // App Components
 import { AppComponent } from './app.component';
 import { LoadingComponent } from './shared/components/loading/loading.component';
+import { ShadeDialogComponent } from './pages/components/shade-dialog/shade-dialog.component';
 
 // Pages
 import { HomeComponent } from './pages/home/home.component';
@@ -19,16 +20,14 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { OpendotaApiService } from './core/opendota-api.service';
 import { ThrowShadeService } from './core/throw-shade.service';
 import { RankingComponent } from './pages/ranking/ranking.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
     LoadingComponent,
-    RankingComponent
+    RankingComponent,
+    ShadeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -36,10 +35,11 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
 
+  ],
+  entryComponents: [
+    DashboardComponent,
+    ShadeDialogComponent
   ],
   providers: [
     OpendotaApiService,
