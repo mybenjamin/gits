@@ -20,5 +20,6 @@ export class OpendotaApiService {
 
   public getPlayerData = (id: number) => this.http.get<Player>(`${this.url}/players/${id}`);
   public getPlayers = () => this.players;
+  public getHeroes = () => this.http.get('https://api.opendota.com/api/heroes');
 
 }

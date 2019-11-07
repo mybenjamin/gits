@@ -18,19 +18,27 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 // Services
 import { OpendotaApiService } from './core/opendota-api.service';
 import { ThrowShadeService } from './core/throw-shade.service';
+import { RankingComponent } from './pages/ranking/ranking.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    LoadingComponent
+    LoadingComponent,
+    RankingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
 
   ],
   providers: [

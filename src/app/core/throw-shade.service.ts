@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Shade } from './models/shade';
+import { Deaths } from './models/shade';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThrowShadeService {
-  url = 'https://evilinsult.com/generate_insult.php?lang=en&type=json';
+  url = 'https://api.opendota.com/api/players/';
   constructor(private http: HttpClient) { }
 
-  throwShade = () => this.http.get<Shade>(this.url);
+  mostDeaths = (id: number) => this.http.get<Deaths>(`${this.url}${id}/matches?sort=deaths&limit=1`);
 }

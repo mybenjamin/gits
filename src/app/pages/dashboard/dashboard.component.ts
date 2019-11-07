@@ -12,24 +12,15 @@ export class DashboardComponent implements OnInit {
 
   players: any;
   playerList: Array<Player> = [];
-  insult: string;
   constructor(private opendota: OpendotaApiService, private shade: ThrowShadeService) { }
 
   ngOnInit() {
     this.players = this.opendota.getPlayers();
-    console.log(this.players);
     for (const player of this.players) {
       this.opendota.getPlayerData(player.id).subscribe(x => this.playerList.push(x));
     }
-    setTimeout(() => {
-      console.log(this.playerList);
-    }, 1000);
   }
 
-  throwShade = () => this.shade.throwShade().subscribe(x => {
-    this.insult = x.insult;
-    setTimeout(() => {
-      console.log(this.insult);
-    }, 1000);
-  })
+  throwShade = (id: number) => this.shade.mostDeaths(id).subscribe(x => x);
+
 }
