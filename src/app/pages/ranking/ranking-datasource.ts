@@ -5,33 +5,20 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
-export interface RankingItem {
+export interface Ranks {
   name: string;
   id: number;
 }
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: RankingItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+const EXAMPLE_DATA: Ranks[] = [
+  { id: 146655393, name: 'Benjee' },
+  { id: 134484246, name: 'Mellow' },
+  { id: 175322242, name: 'ZOID' },
+  { id: 103359047, name: 'UdieMonkey' },
+  { id: 91262453, name: 'i_also_use_hax' },
+  { id: 117730952, name: 'AWdC' },
+  { id: 107039798, name: '[Æ]Vortex' }
 ];
 
 /**
@@ -39,8 +26,8 @@ const EXAMPLE_DATA: RankingItem[] = [
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class RankingDataSource extends DataSource<RankingItem> {
-  data: RankingItem[] = EXAMPLE_DATA;
+export class RankingDataSource extends DataSource<Ranks> {
+  data: Ranks[] = EXAMPLE_DATA;
   paginator: MatPaginator;
   sort: MatSort;
 
@@ -53,7 +40,7 @@ export class RankingDataSource extends DataSource<RankingItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<RankingItem[]> {
+  connect(): Observable<Ranks[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
@@ -71,13 +58,13 @@ export class RankingDataSource extends DataSource<RankingItem> {
    *  Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
-  disconnect() {}
+  disconnect() { }
 
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: RankingItem[]) {
+  private getPagedData(data: Ranks[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
@@ -86,7 +73,7 @@ export class RankingDataSource extends DataSource<RankingItem> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: RankingItem[]) {
+  private getSortedData(data: Ranks[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }

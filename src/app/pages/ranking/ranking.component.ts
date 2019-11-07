@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { RankingDataSource, RankingItem } from './ranking-datasource';
+import { RankingDataSource, Ranks } from './ranking-datasource';
 
 @Component({
   selector: 'app-ranking',
@@ -10,9 +10,9 @@ import { RankingDataSource, RankingItem } from './ranking-datasource';
   styleUrls: ['./ranking.component.scss']
 })
 export class RankingComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
-  @ViewChild(MatTable, {static: false}) table: MatTable<RankingItem>;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatTable, { static: false }) table: MatTable<Ranks>;
   dataSource: RankingDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
