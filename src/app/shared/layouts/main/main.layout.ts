@@ -4,11 +4,13 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  // tslint:disable-next-line: component-selector
+  selector: 'main-layout',
+  templateUrl: './main.layout.html',
+  styleUrls: ['./main.layout.scss']
 })
-export class HomeComponent {
+// tslint:disable-next-line: component-class-suffix
+export class MainLayout {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -16,6 +18,6 @@ export class HomeComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
 }
