@@ -9,7 +9,6 @@ import { MaterialModule } from './shared/material.module';
 
 // App Components
 import { AppComponent } from './app.component';
-import { LoadingComponent } from './shared/components/loading/loading.component';
 import { ShadeDialogComponent } from './pages/components/shade-dialog/shade-dialog.component';
 
 // Layouts
@@ -28,7 +27,6 @@ import { RankingComponent } from './pages/ranking/ranking.component';
     AppComponent,
     MainLayout,
     DashboardComponent,
-    LoadingComponent,
     RankingComponent,
     ShadeDialogComponent
   ],

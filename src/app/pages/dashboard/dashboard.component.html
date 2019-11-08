@@ -1,13 +1,15 @@
-<app-loading *ngIf="!playerList.length"></app-loading>
+<mat-spinner style="margin:50% auto;" *ngIf="!playerList.length"></mat-spinner>
 
 <div class="container" *ngIf="playerList.length">
   <mat-card class="player-card" *ngFor="let player of playerList">
     <mat-card-title class="player-name">{{player.profile.personaname}}</mat-card-title>
     <mat-card-subtitle class="player-mmr">{{player.mmr_estimate.estimate}} MMR</mat-card-subtitle>
+    <mat-divider></mat-divider>
     <img class="player-avatar" mat-card-lg-image [src]="player.profile.avatarfull">
+    <mat-divider></mat-divider>
     <mat-card-actions>
       <button mat-raised-button color="primary">STATS</button>
-      <button mat-raised-button color="accent" (click)="throwShade(player.profile.account_id)">THROW SHADE</button>
+      <button mat-raised-button color="accent" (click)="openShadeDialog(player.profile.account_id)">THROW SHADE</button>
     </mat-card-actions>
   </mat-card>
 </div>
