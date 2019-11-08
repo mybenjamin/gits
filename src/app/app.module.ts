@@ -21,6 +21,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { OpendotaApiService } from './core/opendota-api.service';
 import { ThrowShadeService } from './core/throw-shade.service';
 import { RankingComponent } from './pages/ranking/ranking.component';
+import { RecentMatchesComponent } from './pages/recent-matches/recent-matches.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RankingComponent } from './pages/ranking/ranking.component';
     MainLayout,
     DashboardComponent,
     RankingComponent,
-    ShadeDialogComponent
+    ShadeDialogComponent,
+    RecentMatchesComponent
   ],
   imports: [
     BrowserModule,

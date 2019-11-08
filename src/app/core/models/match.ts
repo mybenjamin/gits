@@ -161,4 +161,5 @@ export interface Benchmarks {
 }
 
 export interface Lhten {
+  data: string;
 }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Player } from './models/player';
+import { RecentMatch } from './models/recent';
+import { Hero } from './models/hero';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +20,8 @@ export class OpendotaApiService {
   ];
   constructor(private http: HttpClient) { }
 
-  public getPlayerData = (id: number) => this.http.get<Player>(`${this.url}/players/${id}`);
-  public getPlayers = () => this.players;
-  public getHeroes = () => this.http.get('https://api.opendota.com/api/heroes');
-
+  getPlayerData = (id: number) => this.http.get<Player>(`${this.url}/players/${id}`);
+  getPlayers = () => this.players;
+  getHeroes = () => this.http.get<Array<Hero>>('https://api.opendota.com/api/heroes');
+  getRecentMatches = (playerId: number) => this.http.get<Array<RecentMatch>>(`${this.url}/players/${playerId}/recentMatches?`);
 }
