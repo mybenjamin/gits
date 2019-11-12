@@ -2,8 +2,8 @@
 <div mat-dialog-content>
   <mat-progress-bar mode="indeterminate" *ngIf="!deaths"></mat-progress-bar>
 
-  <p *ngIf="deaths && matchLink">In match
-    <a [href]="matchLink" target="_blank" mat-button color="accent">{{deaths.match_id}}</a>
+  <p *ngIf="deaths">In match
+    <a (click)="openMatch()" mat-button color="accent">{{deaths.match_id}}</a>
     he fed {{deaths.deaths}} kills to the enemy.
   </p>
 </div>

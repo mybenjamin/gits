@@ -19,10 +19,10 @@ export class ShadeDialogComponent implements OnInit {
     private shade: ThrowShadeService) { }
 
   ngOnInit() {
-    this.matchLink = `https://www.opendota.com/matches/${this.data}`;
     this.shade.mostDeaths(this.data).subscribe(x => this.deaths = x.pop());
   }
   onNoClick(): void {
     this.dialogRef.close();
   }
+  openMatch = () => window.open(`https://www.opendota.com/matches/${this.deaths.match_id}`, '_blank');
 }

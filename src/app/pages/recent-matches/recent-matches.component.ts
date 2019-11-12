@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OpendotaApiService } from '../../core/opendota-api.service';
-import { RecentMatch } from '../../core/models/recent';
 import { Hero } from '../../core/models/hero';
-import { performance } from 'perf_hooks';
 
 @Component({
   selector: 'app-recent-matches',
