@@ -1,6 +1,6 @@
 <mat-spinner style="margin:50% auto;" *ngIf="!playerList.length"></mat-spinner>
 
-<div class="container" *ngIf="playerList.length">
+<div class="container" *ngIf="playerList">
   <mat-card class="player-card" *ngFor="let player of playerList">
     <mat-card-title class="player-name">{{player.profile.personaname}}</mat-card-title>
     <mat-card-subtitle class="player-mmr">{{player.mmr_estimate.estimate}} MMR</mat-card-subtitle>

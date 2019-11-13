@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+
 // Services
-import { OpendotaApiService } from '../../core/opendota-api.service';
+import { DataService } from '../../core/data.service';
+
 // Components
 import { ShadeDialogComponent } from '../components/shade-dialog/shade-dialog.component';
+
 // Models
 import { Player } from '../../core/models/player';
 
@@ -14,17 +17,15 @@ import { Player } from '../../core/models/player';
 })
 export class DashboardComponent implements OnInit {
 
-  players: any;
   playerList: Array<Player> = [];
 
   constructor(
-    private opendota: OpendotaApiService,
+    private data: DataService,
     private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.players = this.opendota.getPlayers();
-    for (const player of this.players) {
-      this.opendota.getPlayerData(player.id).subscribe(x => this.playerList.push(x));
+    for (const player of this.data.players) {
+      this.playerList.push(this.data.getPlayerProfile(player.id));
     }
   }
 

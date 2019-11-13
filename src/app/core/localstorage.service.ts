@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { OpendotaApiService } from '../../core/opendota-api.service';
-import { Hero } from '../../core/models/hero';
+import { Injectable } from '@angular/core';
+import { DataService } from './data.service';
 
-@Component({
-  selector: 'app-recent-matches',
-  templateUrl: './recent-matches.component.html',
-  styleUrls: ['./recent-matches.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class RecentMatchesComponent implements OnInit {
+export class LocalstorageService {
 
-  heroes: Array<Hero> = [];
-  players: Array<any> = [];
-  recentMatchesList = [];
+  constructor() { }
 
-  constructor(private opendota: OpendotaApiService) { }
+  save = (key: string, value: object) => localStorage.setItem(key, JSON.stringify(value));
+  retrieve = (key: string) => JSON.parse(localStorage.getItem(key));
+  clear = () => localStorage.clear();
+}
+
+/* calculation logic
 
   ngOnInit() {
     this.players = this.opendota.getPlayers();
@@ -59,4 +59,5 @@ export class RecentMatchesComponent implements OnInit {
 
     return result;
   }
-}
+
+*/

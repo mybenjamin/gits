@@ -1,7 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ThrowShadeService } from 'src/app/core/throw-shade.service';
+
+// Models
 import { Deaths } from 'src/app/core/models/shade';
+
+// Services
+import { DataService } from 'src/app/core/data.service';
 
 @Component({
   selector: 'app-shade-dialog',
@@ -16,10 +20,10 @@ export class ShadeDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ShadeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private shade: ThrowShadeService) { }
+    private shade: DataService) { }
 
   ngOnInit() {
-    this.shade.mostDeaths(this.data).subscribe(x => this.deaths = x.pop());
+    this.shade.getMatchWithMostDeaths(this.data).subscribe(x => this.deaths = x.pop());
   }
   onNoClick(): void {
     this.dialogRef.close();

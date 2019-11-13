@@ -18,19 +18,15 @@ import { MainLayout } from './shared/layouts/main/main.layout';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 // Services
-import { OpendotaApiService } from './core/opendota-api.service';
-import { ThrowShadeService } from './core/throw-shade.service';
-import { RankingComponent } from './pages/ranking/ranking.component';
-import { RecentMatchesComponent } from './pages/recent-matches/recent-matches.component';
+import { DataService } from './core/data.service';
+import { LocalstorageService } from './core/localstorage.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayout,
     DashboardComponent,
-    RankingComponent,
     ShadeDialogComponent,
-    RecentMatchesComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +41,8 @@ import { RecentMatchesComponent } from './pages/recent-matches/recent-matches.co
     ShadeDialogComponent
   ],
   providers: [
-    OpendotaApiService,
-    ThrowShadeService
+    DataService,
+    LocalstorageService
   ],
   bootstrap: [AppComponent]
 })

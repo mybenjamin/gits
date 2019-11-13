@@ -1,9 +1,0 @@
-<mat-spinner style="margin:50% auto;" *ngIf="!players.length"></mat-spinner>
-<mat-list role="list">
-  <mat-list-item *ngFor="let player of recentMatchesList" role="listitem" color="accent">
-    <p>{{player.name}}'s Stats for last 20 games</p>
-    <p>{{player.performance.kills}} Kills</p>
-    <p>{{player.performance.deaths}} Deaths</p>
-    <p>{{player.performance.assists}} Assists</p>
-  </mat-list-item>
-</mat-list>
