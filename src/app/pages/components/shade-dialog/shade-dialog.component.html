@@ -7,7 +7,7 @@
     he fed {{deaths.deaths}} kills to the enemy.
   </p>
 </div>
-<div mat-dialog-actions *ngIf="deaths && matchLink">
-  <button mat-stroked-button [mat-dialog-close]="data" cdkFocusInitial>What a noob</button>
+<div mat-dialog-actions *ngIf="deaths">
+  <button mat-stroked-button [mat-dialog-close]="data">What a noob</button>
   <button mat-icon-button color="warn" (click)="onNoClick()"><i class="material-icons">close</i></button>
 </div>

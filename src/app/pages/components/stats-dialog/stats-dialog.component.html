@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>The Dota Gods Report:</h1>
+<mat-progress-bar mode="indeterminate" *ngIf="!stats.performance"></mat-progress-bar>
+<div mat-dialog-content *ngIf="stats.performance">
+  <h5>{{stats.player_name}}'s stats over the last {{stats.matches.length}} games played:</h5>
+  <p><span class="stats">{{stats.performance.kills}}</span> | Kills</p>
+  <p><span class="stats">{{stats.performance.deaths}} </span> | Deaths</p>
+  <p><span class="stats">{{stats.performance.assists}} </span> | Assists</p>
+  <p><span class="stats">{{stats.performance.gold_per_min}} </span> | GPM</p>
+  <p><span class="stats">{{stats.performance.hero_damage}} </span> | DPS</p>
+  <p><span class="stats">{{stats.performance.xp_per_min}} </span> | XP per minute</p>
+  <p><span class="stats">{{stats.performance.tower_damage}} </span> | Tower Damage</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-stroked-button color="secondary" [mat-dialog-close]="stats">{{checkName(stats.player_name)}}</button>
+  <button mat-icon-button color="warn" (click)="onNoClick()"><i class="material-icons">close</i></button>
+</div>

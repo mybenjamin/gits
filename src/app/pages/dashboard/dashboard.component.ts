@@ -6,6 +6,7 @@ import { DataService } from '../../core/data.service';
 
 // Components
 import { ShadeDialogComponent } from '../components/shade-dialog/shade-dialog.component';
+import { StatsDialogComponent } from '../components/stats-dialog/stats-dialog.component';
 
 // Models
 import { Player } from '../../core/models/player';
@@ -28,7 +29,6 @@ export class DashboardComponent implements OnInit {
       this.data.getPlayerProfile(player.id)
         .subscribe(response => this.playerList.push(response));
     }
-    console.log(this.playerList);
   }
 
   openShadeDialog = (id: number): void => {
@@ -36,9 +36,12 @@ export class DashboardComponent implements OnInit {
       width: '500px',
       data: id
     });
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
+  openStatsDialog = (player: Player): void => {
+    const dialogRef = this.dialog.open(StatsDialogComponent, {
+      width: '500px',
+      data: player
     });
   }
 }

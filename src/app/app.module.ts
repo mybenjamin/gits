@@ -10,6 +10,7 @@ import { MaterialModule } from './shared/material.module';
 // App Components
 import { AppComponent } from './app.component';
 import { ShadeDialogComponent } from './pages/components/shade-dialog/shade-dialog.component';
+import { StatsDialogComponent } from './pages/components/stats-dialog/stats-dialog.component';
 
 // Layouts
 import { MainLayout } from './shared/layouts/main/main.layout';
@@ -27,6 +28,7 @@ import { LocalstorageService } from './core/localstorage.service';
     MainLayout,
     DashboardComponent,
     ShadeDialogComponent,
+    StatsDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { LocalstorageService } from './core/localstorage.service';
   ],
   entryComponents: [
     DashboardComponent,
-    ShadeDialogComponent
+    ShadeDialogComponent,
+    StatsDialogComponent
   ],
   providers: [
     DataService,
