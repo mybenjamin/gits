@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataService } from './data.service';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +7,8 @@ import { DataService } from './data.service';
 export class LocalstorageService {
 
   constructor() { }
-
   save = (key: string, value: object) => localStorage.setItem(key, JSON.stringify(value));
-  retrieve = (key: string) => JSON.parse(localStorage.getItem(key));
+  retrieve = (key: string) => of(JSON.parse(localStorage.getItem(key)));
   clear = () => localStorage.clear();
 }
 

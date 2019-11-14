@@ -9,6 +9,7 @@ import { Hero } from './models/hero';
 
 // Services
 import { LocalstorageService } from './localstorage.service';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,17 +27,26 @@ export class DataService {
     { id: 107039798, name: '[Æ]Vortex' }
   ];
 
+  playerList: Array<Player> = [];
+
   constructor(private http: HttpClient, private storage: LocalstorageService) { }
 
   getPlayerProfile = (accountID: number) => {
-    const playerProfile = this.storage.retrieve(`${accountID}-player`);
-    if (playerProfile) { return playerProfile; }
-    this.http.get<Player>(`${this.url}/players/${accountID}`).subscribe(res => this.storage.save(`${accountID}-player`, res));
-    return this.storage.retrieve(`${accountID}-player`);
+    const playerProfile = localStorage.getItem(`${accountID}-player`);
+    if (playerProfile) { return this.storage.retrieve(`${accountID}-player`); }
+
+    return this.http.get<Player>(`${this.url}/players/${accountID}`)
+      .pipe(tap(data => this.storage.save(`${accountID}-player`, data)));
   }
+
   getRecentMatches = (accountID: number) => {
-    this.http.get<Array<RecentMatch>>(`${this.url}/players/${accountID}/recentMatches?`);
+    const recentMatches = localStorage.getItem(`${accountID}-matches`);
+    if (recentMatches) { return this.storage.retrieve(`${accountID}-matches`); }
+
+    return this.http.get<Array<RecentMatch>>(`${this.url}/players/${accountID}/recentMatches?`)
+      .pipe(tap(data => this.storage.save(`${accountID}-matches`, data)));
   }
+
   getMatchWithMostDeaths = (accountID: number) => this.http.get<Deaths[]>(`${this.url}/players/${accountID}/matches?sort=deaths&limit=1`);
   getAllHeroes = () => this.http.get<Array<Hero>>('https://api.opendota.com/api/heroes');
 }

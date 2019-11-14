@@ -25,8 +25,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     for (const player of this.data.players) {
-      this.playerList.push(this.data.getPlayerProfile(player.id));
+      this.data.getPlayerProfile(player.id)
+        .subscribe(response => this.playerList.push(response));
     }
+    console.log(this.playerList);
   }
 
   openShadeDialog = (id: number): void => {
