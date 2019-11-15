@@ -13,7 +13,7 @@ import { ShadeDialogComponent } from './pages/components/shade-dialog/shade-dial
 import { StatsDialogComponent } from './pages/components/stats-dialog/stats-dialog.component';
 
 // Layouts
-import { MainLayout } from './shared/layouts/main/main.layout';
+import { MainLayout, SnackBarComponent } from './shared/layouts/main/main.layout';
 
 // Pages
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -29,6 +29,7 @@ import { LocalstorageService } from './core/localstorage.service';
     DashboardComponent,
     ShadeDialogComponent,
     StatsDialogComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,8 @@ import { LocalstorageService } from './core/localstorage.service';
   entryComponents: [
     DashboardComponent,
     ShadeDialogComponent,
-    StatsDialogComponent
+    StatsDialogComponent,
+    SnackBarComponent
   ],
   providers: [
     DataService,

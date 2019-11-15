@@ -13,6 +13,9 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Gaming In The Shade</span>
+      <button mat-icon-button color="warn" (click)="openSnackBar()" matTooltip="Data will be refreshed">
+        <mat-icon>cached</mat-icon>
+      </button>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
