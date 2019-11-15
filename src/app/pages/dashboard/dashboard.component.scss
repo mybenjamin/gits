@@ -1,17 +1,27 @@
-div {
-  display: inline-block;
+mat-progress-bar {
+  top: 50;
 }
 
 .container {
-  padding: 5em;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: center;
 }
 
-.card {
-  max-width: 200px;
+.player-card {
+  max-width: 250px;
   min-width: 200px;
   margin: 2em;
+  display: inline-block;
 }
 
-.image {
-  border-radius: 1em;
+.player-name {}
+
+.player-mmr {}
+
+.player-avatar {
+  padding: 1em;
+  border-radius: 2em;
 }

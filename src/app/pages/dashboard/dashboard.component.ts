@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { OpendotaApiService } from '../../core/opendota-api.service';
+import { MatDialog } from '@angular/material/dialog';
+
+// Services
+import { DataService } from '../../core/data.service';
+
+// Components
+import { ShadeDialogComponent } from '../components/shade-dialog/shade-dialog.component';
+import { StatsDialogComponent } from '../components/stats-dialog/stats-dialog.component';
+
+// Models
 import { Player } from '../../core/models/player';
 
 @Component({
@@ -9,19 +18,30 @@ import { Player } from '../../core/models/player';
 })
 export class DashboardComponent implements OnInit {
 
-  players: any;
   playerList: Array<Player> = [];
 
-  constructor(private opendota: OpendotaApiService) { }
+  constructor(
+    private data: DataService,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.players = this.opendota.getPlayers();
-    console.log(this.players);
-    for (const player of this.players) {
-      this.opendota.getPlayerData(player.id).subscribe(x => this.playerList.push(x));
+    for (const player of this.data.players) {
+      this.data.getPlayerProfile(player.id)
+        .subscribe(response => this.playerList.push(response));
     }
-    setTimeout(() => {
-      console.log(this.playerList);
-    }, 1000);
+  }
+
+  openShadeDialog = (id: number): void => {
+    const dialogRef = this.dialog.open(ShadeDialogComponent, {
+      width: '500px',
+      data: id
+    });
+  }
+
+  openStatsDialog = (player: Player): void => {
+    const dialogRef = this.dialog.open(StatsDialogComponent, {
+      width: '500px',
+      data: player
+    });
   }
 }

@@ -4,33 +4,51 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 // App Modules
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routes';
 import { MaterialModule } from './shared/material.module';
 
 // App Components
 import { AppComponent } from './app.component';
+import { ShadeDialogComponent } from './pages/components/shade-dialog/shade-dialog.component';
+import { StatsDialogComponent } from './pages/components/stats-dialog/stats-dialog.component';
+
+// Layouts
+import { MainLayout, SnackBarComponent } from './shared/layouts/main/main.layout';
 
 // Pages
-import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { OpendotaApiService } from './core/opendota-api.service';
-import { LoadingComponent } from './shared/components/loading/loading.component';
+
+// Services
+import { DataService } from './core/data.service';
+import { LocalstorageService } from './core/localstorage.service';
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    MainLayout,
     DashboardComponent,
-    LoadingComponent
+    ShadeDialogComponent,
+    StatsDialogComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
 
   ],
-  providers: [OpendotaApiService],
+  entryComponents: [
+    DashboardComponent,
+    ShadeDialogComponent,
+    StatsDialogComponent,
+    SnackBarComponent
+  ],
+  providers: [
+    DataService,
+    LocalstorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

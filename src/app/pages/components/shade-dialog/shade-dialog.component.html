@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>The Dota Gods Say:</h1>
+<div mat-dialog-content>
+  <mat-progress-bar mode="indeterminate" *ngIf="!deaths"></mat-progress-bar>
+
+  <p *ngIf="deaths">In match
+    <a (click)="openMatch()" mat-button color="accent">{{deaths.match_id}}</a>
+    he fed {{deaths.deaths}} kills to the enemy.
+  </p>
+</div>
+<div mat-dialog-actions *ngIf="deaths">
+  <button mat-stroked-button [mat-dialog-close]="data">What a noob</button>
+  <button mat-icon-button color="warn" (click)="onNoClick()"><i class="material-icons">close</i></button>
+</div>
