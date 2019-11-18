@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
     for (const player of this.data.players) {
       this.data.getPlayerProfile(player.id)
         .subscribe(response => this.playerList.push(response));
+      // this.data.getWinsLosses(player.id).subscribe(x => console.log(x));
     }
   }
 
