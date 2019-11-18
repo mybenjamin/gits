@@ -17,6 +17,7 @@ import { MainLayout, SnackBarComponent } from './shared/layouts/main/main.layout
 
 // Pages
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LeastValuablePlayerComponent } from './pages/least-valuable-player/least-valuable-player.component';
 
 // Services
 import { DataService } from './core/data.service';
@@ -29,7 +30,8 @@ import { LocalstorageService } from './core/localstorage.service';
     DashboardComponent,
     ShadeDialogComponent,
     StatsDialogComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    LeastValuablePlayerComponent
   ],
   imports: [
     BrowserModule,
