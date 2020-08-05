@@ -46,7 +46,7 @@ export class DataService {
     return this.http.get<Array<RecentMatch>>(`${this.url}/players/${accountID}/recentMatches?`)
       .pipe(tap(data => this.storage.save(`${accountID}-matches`, data)));
   }
-
+  getWinsLosses = (accountID: number) => this.http.get(`https://api.opendota.com/api/players/${accountID}/wl`);
   getMatchWithMostDeaths = (accountID: number) => this.http.get<Deaths[]>(`${this.url}/players/${accountID}/matches?sort=deaths&limit=1`);
   getAllHeroes = () => this.http.get<Array<Hero>>('https://api.opendota.com/api/heroes');
 }

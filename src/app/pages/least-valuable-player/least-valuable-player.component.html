@@ -1,0 +1,30 @@
+<div class="container" *ngIf="lvp">
+  <p class="fade-in" *ngIf="display == 'kills'">
+    With <span class="highlight">{{ lvp.performance.kills }}</span> kills on
+    average in the last 20 games.
+  </p>
+  <p class="fade-in" *ngIf="display == 'deaths'">
+    Feeding <span class="highlight">{{ lvp.performance.deaths }}</span> deaths a
+    game.
+  </p>
+  <p class="fade-in" *ngIf="display == 'assists'">
+    Helping kill only
+    <span class="highlight">{{ lvp.performance.assists }}</span> enemies on
+    average.
+  </p>
+  <p class="fade-in" *ngIf="display == 'kak'">
+    An overall <span class="highlight">kak</span> teammate with the worst stats.
+  </p>
+  <p class="fade-in" *ngIf="display == 'player' || display == 'reveal'">
+    The current <span class="highlight">Least Valuable Player</span> is...
+  </p>
+
+  <!-- player account -->
+  <mat-card class="player-card bounce-in-bck" *ngIf="display == 'reveal'">
+    <mat-card-title class="player-name">{{ lvpAccount.profile.personaname }}</mat-card-title>
+    <mat-card-subtitle class="player-mmr">{{ lvpAccount.mmr_estimate.estimate }} MMR</mat-card-subtitle>
+    <mat-divider></mat-divider>
+    <img class="player-avatar" mat-card-lg-image [src]="lvpAccount.profile.avatarfull" />
+    <mat-divider></mat-divider>
+  </mat-card>
+</div>
