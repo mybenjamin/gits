@@ -22,9 +22,13 @@ export class DataService {
     { id: 134484246, name: 'Mellow' },
     { id: 175322242, name: 'ZOID' },
     { id: 103359047, name: 'UdieMonkey' },
-    { id: 91262453, name: 'i_also_use_hax' },
+    { id: 91262453, name: 'HAX' },
     { id: 117730952, name: 'AWdC' },
-    { id: 107039798, name: '[Æ]Vortex' }
+    { id: 107039798, name: 'Vortex' },
+    { id: 885014997, name: 'Bushido' },
+    { id: 175247682, name: 'Iliosus' },
+    { id: 202328654, name: 'Shytoh' },
+    { id: 213135730, name: 'Potathoe' },
   ];
 
   playerList: Array<Player> = [];
