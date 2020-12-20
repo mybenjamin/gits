@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "gits-efc27"
+  },
+  "targets": {
+    "gits-efc27": {
+      "hosting": {
+        "gits": [
+          "gits-efc27"
+        ]
+      }
+    }
   }
 }
